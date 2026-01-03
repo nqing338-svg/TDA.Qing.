@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Qing.晴的自介</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * { 
             margin: 0; 
@@ -75,6 +78,7 @@
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             cursor: default;
+            transition: background-image 1s ease-in-out;
         }
 
         /* 雪花飘落动画 */
@@ -126,10 +130,10 @@
             padding: 20px; 
             margin: 30px auto;
             border-radius: 16px;
-            backdrop-filter: blur(5px); /* 减少模糊效果 */
-            background: rgba(255,255,255,0.3); /* 增加不透明度使更清晰 */
+            backdrop-filter: blur(5px);
+            background: rgba(255,255,255,0.3);
             box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.5); /* 增加边框透明度使更清晰 */
+            border: 1px solid rgba(255,255,255,0.5);
             text-align: center;
             opacity: 0;
             transform: translateY(20px);
@@ -138,8 +142,6 @@
             position: relative;
             overflow: hidden;
         }
-        
-        /* 移除卡片灯带效果 */
         
         .profile-card img {
             width: 120px; 
@@ -156,7 +158,7 @@
         }
         
         /* Qing.晴文字 - 彩色流光效果 */
-        .profile-card h2 { 
+         .profile-card h2 { 
             font-size: 1.8rem; 
             margin-bottom: 8px; 
             background: linear-gradient(90deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb, #ff9a9e);
@@ -186,23 +188,27 @@
         }
         
         /* 北京时间显示 - 紫色渐变流光效果 */
+        .beijing-time-container {
+            display: inline-block;
+            text-align: center;
+            margin: 10px 0;
+            position: relative;
+        }
+        
         .beijing-time {
             font-size: 1.2rem;
             font-weight: bold;
-            margin: 10px 0;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-            background: rgba(255,255,255,0.4); /* 增加不透明度使更清晰 */
+            background: rgba(255,255,255,0.4);
             padding: 8px 15px;
             border-radius: 20px;
-            display: inline-block;
-            backdrop-filter: blur(2px); /* 减少模糊效果 */
-            border: 1px solid rgba(255,255,255,0.4); /* 增加边框透明度使更清晰 */
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255,255,255,0.4);
             animation: timePulse 2s infinite;
-transition: all 0.3s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            /* 改为紫色渐变流光效果 */
             background: linear-gradient(90deg, #8B00FF, #9370DB, #8B00FF);
             background-size: 400% 400%;
             -webkit-background-clip: text;
@@ -224,25 +230,27 @@ transition: all 0.3s ease;
             }
         }
         
-        /* 北京时间小字 */
+        /* 北京时间小字 - 调整到时间区域内部下方 */
         .beijing-label {
-            font-size: 0.9rem;
+            font-size: 0.7rem;
             color: rgba(255, 255, 255, 0.7);
-            margin-top: 5px;
+            margin-top: 3px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            display: block;
+            text-align: center;
         }
         
-        /* 音乐背景卡片（合并歌词）- 移除边缘流光效果 */
+        /* 音乐背景卡片 - 已移除歌词 */
         .music-background-card {
             width: 90%;
             max-width: 400px;
             margin: 15px auto 0;
             padding: 15px;
             border-radius: 12px;
-            backdrop-filter: blur(5px); /* 减少模糊效果 */
-            background: rgba(255,255,255,0.3); /* 增加不透明度使更清晰 */
+            backdrop-filter: blur(5px);
+            background: rgba(255,255,255,0.3);
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.5); /* 增加边框透明度使更清晰 */
+            border: 1px solid rgba(255,255,255,0.5);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -252,8 +260,8 @@ transition: all 0.3s ease;
         }
         
         /* 音乐播放时卡片脉冲效果 - 彩色流光脉冲，加快频率 */
-        .music-pulse {
-            animation: musicCardPulse 1s infinite; /* 从2s改为1s，加快频率 */
+           .music-pulse {
+            animation: musicCardPulse 1s infinite;
         }
         
         @keyframes musicCardPulse {
@@ -276,7 +284,7 @@ transition: all 0.3s ease;
         
         .music-background-card.show {
             opacity: 1;
-            max-height: 200px;
+            max-height: 100px;
         }
         
         .music-title {
@@ -284,7 +292,6 @@ transition: all 0.3s ease;
             color: #fff;
             font-weight: bold;
             margin-bottom: 5px;
-            /* 改为紫色渐变流光效果 */
             background: linear-gradient(90deg, #8B00FF, #9370DB, #8B00FF);
             background-size: 400% 400%;
             -webkit-background-clip: text;
@@ -292,7 +299,6 @@ transition: all 0.3s ease;
             color: transparent;
             animation: gradient 3s ease infinite;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            filter: none; /* 防止模糊 */
         }
         
         .music-time {
@@ -302,61 +308,22 @@ transition: all 0.3s ease;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
         
-        .lyrics-content {
-            font-size: 0.9rem;
-            line-height: 1.5;
+        /* 按钮样式 */
+        button {
+            padding: 12px 20px;
+            margin: 5px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
             color: #fff;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            animation: bounce 2s ease infinite;
-            padding: 8px 0;
-            min-height: 24px;
-            /* 改为紫色渐变流光效果 */
-            background: linear-gradient(90deg, #8B00FF, #9370DB, #8B00FF);
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: gradient 3s ease infinite, bounce 2s ease infinite;
-            filter: none; /* 防止模糊 */
-            }
-        
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-3px);
-            }
-        }
-
-        /* 音乐按钮容器 */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        /* 音乐开关按钮（玻璃质感）- 减少模糊效果，增加清晰度 */
-        #musicBtn, #moodBtn, #wechatBtn {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 12px;
-            backdrop-filter: blur(3px); /* 减少模糊效果 */
-            background: rgba(255,255,255,0.3); /* 增加不透明度使更清晰 */
-            border: 1px solid rgba(255,255,255,0.4); /* 增加边框透明度使更清晰 */
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            z-index: 20;
-            position: relative;
-            min-width: 120px;
-            overflow: hidden;
-            /* 修复按钮文字模糊问题 - 使用背景和文字分离的方法 */
-            filter: none; /* 防止模糊 */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            min-width: 130px;
+            font-size: 0.95rem;
+            outline: none;
         }
         
         /* 按钮文字彩色流光效果 */
@@ -367,11 +334,10 @@ transition: all 0.3s ease;
             background-clip: text;
             color: transparent;
             animation: gradient 3s ease infinite;
-            filter: none; /* 防止模糊 */
         }
         
         /* 按钮点击脉冲效果 */
-        #musicBtn.pulse-active, #moodBtn.pulse-active, #wechatBtn.pulse-active {
+        #musicBtn.pulse-active, #moodBtn.pulse-active, #wechatBtn.pulse-active, #bgChangeBtn.pulse-active, #aboutUsBtn.pulse-active, #topRecommendBtn.pulse-active, #moreVideosBtn.pulse-active {
             animation: buttonPulse 0.5s ease;
         }
         
@@ -390,11 +356,11 @@ transition: all 0.3s ease;
             }
         }
         
-        #musicBtn:hover, #moodBtn:hover, #wechatBtn:hover {
-            background: rgba(255,255,255,0.4); /* 增加不透明度使更清晰 */
+        #musicBtn:hover, #moodBtn:hover, #wechatBtn:hover, #bgChangeBtn:hover, #aboutUsBtn:hover, #topRecommendBtn:hover, #moreVideosBtn:hover {
+            background: rgba(255,255,255,0.4);
             transform: scale(1.05);
         }
-        #musicBtn:active, #moodBtn:active, #wechatBtn:active {
+        #musicBtn:active, #moodBtn:active, #wechatBtn:active, #bgChangeBtn:active, #aboutUsBtn:active, #topRecommendBtn:active, #moreVideosBtn:active {
             transform: scale(0.98);
         }
 
@@ -405,10 +371,10 @@ transition: all 0.3s ease;
             padding: 20px; 
             margin: 20px auto;
             border-radius: 16px;
-            backdrop-filter: blur(5px); /* 减少模糊效果 */
-            background: rgba(255,255,255,0.3); /* 增加不透明度使更清晰 */
+            backdrop-filter: blur(5px);
+            background: rgba(255,255,255,0.3);
             box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.5); /* 增加边框透明度使更清晰 */
+            border: 1px solid rgba(255,255,255,0.5);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -436,7 +402,6 @@ transition: all 0.3s ease;
             font-size: 1.2rem;
             color: #fff;
             font-weight: bold;
-            /* 添加流光效果 */
             background: linear-gradient(90deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb, #ff9a9e);
             background-size: 400% 400%;
             -webkit-background-clip: text;
@@ -450,7 +415,6 @@ transition: all 0.3s ease;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
             margin-bottom: 8px;
             font-size: 0.95rem;
-            /* 添加蓝色渐变流光效果 */
             background: linear-gradient(90deg, #a1c4fd, #c2e9fb, #a1c4fd);
             background-size: 400% 400%;
             -webkit-background-clip: text;
@@ -507,14 +471,14 @@ transition: all 0.3s ease;
         }
         
         /* 心情动画弹窗 - 添加毛玻璃效果 */
-        .popup {
+           .popup {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0.8);
             opacity: 0;
-            background: rgba(255, 255, 255, 0.3); /* 增加不透明度使更清晰 */
-            backdrop-filter: blur(8px); /* 减少模糊效果 */
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             padding: 30px 40px;
             border-radius: 15px;
@@ -523,7 +487,7 @@ transition: all 0.3s ease;
             display: none;
             z-index: 999;
             animation: popupShow 0.5s ease-in-out forwards;
-            border: 1px solid rgba(255, 255, 255, 0.4); /* 增加边框透明度使更清晰 */
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
         
         @keyframes popupShow {
@@ -597,14 +561,337 @@ transition: all 0.3s ease;
             font-weight: bold;
         }
 
-        /* 手机端适配 */
- @media (max-width: 480px) {
-            .profile-card, .links-container, .announcement-card {
+        /* 视频弹窗样式 */
+        .video-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .video-popup-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            animation: scaleIn 0.3s ease;
+        }
+        
+        .video-popup video {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            background: #000;
+        }
+        
+        .video-popup p {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 更多视频弹窗样式 - 带视频切换功能 */
+         .more-videos-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1002;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .more-videos-popup-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            animation: scaleIn 0.3s ease;
+        }
+        
+        .more-videos-popup video {
+            max-width: 100%;
+            max-height: 60vh;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            background: #000;
+        }
+        
+        .video-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            gap: 15px;
+        }
+        
+        .video-control-btn {
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            min-width: 120px;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        
+        .video-control-btn:hover {
+            background: rgba(255,255,255,0.4);
+            transform: scale(1.05);
+        }
+        
+        .video-control-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .video-title {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            height: 24px;
+        }
+        
+        .more-videos-popup p {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 背景过渡动画 */
+        .bg-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        
+        .bg-transition.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* 代码学习进度卡片样式 */
+        .code-progress-card {
+            width: 90%; 
+            max-width: 400px;
+            padding: 20px; 
+            margin: 20px auto;
+            border-radius: 16px;
+            backdrop-filter: blur(5px);
+            background: rgba(255,255,255,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.5);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+            z-index: 10;
+        }
+        
+        .progress-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .progress-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .progress-title {
+            font-size: 1.2rem;
+            color: #fff;
+            font-weight: bold;
+            background: linear-gradient(90deg, #FF9A9E, #FAD0C4, #A1C4FD, #C2E9FB, #FF9A9E);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 3s ease infinite;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .progress-item {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .language-name {
+            font-size: 1rem;
+        }
+        
+        .progress-percent {
+            font-size: 1rem;
+            background: linear-gradient(90deg, #FF9A9E, #FAD0C4);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 2s ease infinite;
+        }
+        
+        .progress-bar-container {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .progress-bar {
+            height: 100%;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            width: 0; /* 初始宽度为0，将通过动画增加到目标值 */
+            transition: width 2s ease-in-out;
+        }
+        
+        /* 不同语言的进度条颜色 */
+         .cpp-progress {
+            background: linear-gradient(90deg, #00599C, #6495ED);
+        }
+        
+        .python-progress {
+            background: linear-gradient(90deg, #3776AB, #FFD43B);
+        }
+        
+        .java-progress {
+            background: linear-gradient(90deg, #007396, #ED8B00);
+        }
+        
+        .haskell-progress {
+            background: linear-gradient(90deg, #5D4F85, #9370DB);
+        }
+        
+        /* 进度条动画效果 */
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: linear-gradient(
+                -45deg, 
+                rgba(255, 255, 255, 0.2) 25%, 
+                transparent 25%, 
+                transparent 50%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0.2) 75%, 
+                transparent 75%, 
+                transparent
+            );
+            background-size: 30px 30px;
+            animation: progressStripes 2s linear infinite;
+            border-radius: 10px;
+        }
+        
+        @keyframes progressStripes {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 30px 0;
+            }
+        }
+        
+        /* 进度条完成时的脉冲效果 */
+        .progress-bar.pulse {
+            animation: progressPulse 1.5s infinite alternate;
+        }
+        
+        @keyframes progressPulse {
+            0% {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            }
+        }
+        
+        /* 进度条数值显示 */
+        .progress-value {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.5s ease 2s; /* 延迟显示数值 */
+        }
+
+        /* 手机端适配 */ 
+        @media (max-width: 480px) {
+            .profile-card, .links-container, .announcement-card, .code-progress-card {
                 width: 95%;
             }
-            .link-item, #musicBtn, #moodBtn, #wechatBtn {
+            .link-item, #musicBtn, #moodBtn, #wechatBtn, #bgChangeBtn, #aboutUsBtn, #topRecommendBtn, #moreVideosBtn {
                 padding: 10px 12px;
                 font-size: 0.9rem;
+                min-width: 100px;
             }
             .profile-card h2 {
                 font-size: 1.5rem;
@@ -617,13 +904,12 @@ transition: all 0.3s ease;
                 padding: 12px;
             }
             .lyrics-content {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
             }
             .button-container {
-                gap: 10px;
-            }
-            #musicBtn, #moodBtn, #wechatBtn {
-                min-width: 110px;
+                gap: 8px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             .popup {
                 padding: 20px 25px;
@@ -635,15 +921,36 @@ transition: all 0.3s ease;
                 max-width: 90%;
                 padding: 20px;
             }
+            .video-popup-content, .more-videos-popup-content {
+                max-width: 95%;
+                padding: 15px;
+            }
+            .video-controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .video-control-btn {
+                min-width: 100px;
+                padding: 8px 16px;
+            }
+            .progress-bar-container {
+                height: 10px;
+            }
+            .language-name, .progress-percent {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body id="v1">
     <!-- 优化的加载动画 -->
     <div id="loading" class="loading">
-        <div class="loading-text">Qing.晴的自介页面加载中...</div>
+   <div class="loading-text">Qing.晴的自介页面加载中...</div>
         <div class="loading-spinner"></div>
     </div>
+
+    <!-- 背景过渡遮罩 -->
+    <div id="bgTransition" class="bg-transition"></div>
 
     <!-- 雪花容器 -->
     <div id="snowflakes"></div>
@@ -661,27 +968,66 @@ transition: all 0.3s ease;
         </div>
     </div>
 
+    <!-- 关于我们视频弹窗 -->
+    <div class="video-popup" id="aboutVideoPopup">
+        <div class="video-popup-content">
+            <video id="aboutVideo" controls>
+                <source src="mmexport1767361458454.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+            </video>
+            <p>点击空白处关闭</p>
+        </div>
+    </div>
+
+    <!-- 头牌推荐视频弹窗 -->
+    <div class="video-popup" id="topRecommendVideoPopup">
+        <div class="video-popup-content">
+            <video id="topRecommendVideo" controls>
+                <source src="video_260103_155029.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+            </video>
+            <p>点击空白处关闭</p>
+        </div>
+    </div>
+
+    <!-- 更多视频弹窗 -->
+    <div class="more-videos-popup" id="moreVideosPopup">
+        <div class="more-videos-popup-content">
+            <video id="moreVideosPlayer" controls>
+                <!-- 视频源将通过JavaScript动态设置 -->
+            </video>
+            <div class="video-title" id="videoTitle">视频 1/2</div>
+            <div class="video-controls">
+                <button id="prevVideoBtn" class="video-control-btn">上一个视频</button>
+                <button id="nextVideoBtn" class="video-control-btn">下一个视频</button>
+            </div>
+            <p>点击空白处关闭</p>
+        </div>
+    </div>
+
     <!-- 顶部个人信息卡片 -->
     <div id="v2" class="profile-card fade-in" style="opacity: 1; transform: translateY(0px);">
         <img id="v3" src="mmexport1754134112937.jpeg" alt="头像" loading="lazy">
         <h2 id="v4">Qing.晴</h2>
         <p id="v5">正在营业中</p>
         <!-- 北京时间显示 -->
-        <div id="beijingTime" class="beijing-time">00:00:00</div>
-        <!-- 北京时间小字 -->
-        <div class="beijing-label">北京时间</div>
+        <div class="beijing-time-container">
+            <div id="beijingTime" class="beijing-time">00:00:00</div>
+            <div class="beijing-label">北京时间</div>
+        </div>
         
-        <!-- 音乐背景卡片（合并歌词） -->
-        <div id="musicBackgroundCard" class="music-background-card">
+        <!-- 音乐背景卡片（已移除歌词） -->
+         <div id="musicBackgroundCard" class="music-background-card">
             <div class="music-title">正在播放：汪苏泷《晴》</div>
             <div class="music-time">2:27 - 3:09</div>
-            <div id="lyricsContent" class="lyrics-content">爱过了几年 才能停 雨下了几天 才能晴</div>
         </div>
         
         <!-- 音乐按钮容器 -->
         <div class="button-container">
             <button id="musicBtn"><span class="button-text">播放音乐 🎵</span></button>
             <button id="moodBtn"><span class="button-text">我不开心 🖤</span></button>
+            <button id="bgChangeBtn"><span class="button-text">切换背景 🌅</span></button>
+            <button id="wechatBtn"><span class="button-text">添加我的微信</span></button>
         </div>
     </div>
     
@@ -692,24 +1038,24 @@ transition: all 0.3s ease;
             <div class="announcement-title">能接游戏</div>
         </div>
         <div class="announcement-content">
-            主接:光遇『跑图 代肝』 和平精英『技术』
+            主接:光遇『跑图 代肝』 无畏契约『技术』
         </div>
         <div class="announcement-content">
-            副接:无畏契约『技术』 王者荣耀『娱乐』
+            副接:使命召唤『技术』 王者荣耀『娱乐』
         </div>
         <div class="announcement-content">
-            超自然『技术』 手游+PC大部分游戏
+            二游『代肝』 手游+PC大部分游戏
         </div>
      </div>
      
      <!-- 公告卡片1- 营业范围-->
-    <div id="announcement3" class="announcement-card fade-in" style="opacity: 1; transform: translateY(0px);">
+     <div id="announcement3" class="announcement-card fade-in" style="opacity: 1; transform: translateY(0px);">
         <div class="announcement-header">
             <div class="announcement-icon">⚙️</div>
             <div class="announcement-title">我的技能</div>
         </div>
         <div class="announcement-content">
-            和平/无畏契约技术提升教学 光遇/虐恋教学审核
+            无畏契约技术提升教学 光遇/虐恋教学审核
         </div>
         <div class="announcement-content">
             部分网页设计与开发 美工设计 等等
@@ -717,7 +1063,7 @@ transition: all 0.3s ease;
     </div>
     
      <!-- 公告卡片2 -->
-          <div id="v6" class="announcement-card fade-in" style="opacity: 1; transform: translateY(0px);">
+     <div id="v6" class="announcement-card fade-in" style="opacity: 1; transform: translateY(0px);">
          <div id="v7" class="announcement-header">
              <div id="v8" class="announcement-icon">👑</div>
              <div id="v9" class="announcement-title">所在俱乐部及职位</div>
@@ -726,13 +1072,11 @@ transition: all 0.3s ease;
           TDA冰点CLUB.『董事长』
          </div>
          <div class="announcement-content">
-          CH帝辛CLUB.『高管』                
+          CH长鸿CLUB. 『副董事』                
          </div>
-         <div class="announcement-content">
-          LX流星CLUB.『高管』                
-         </div>
-         <div class="announcement-content">
-          XY星屿CLUB.『高管』                
+         <!-- 关于我们按钮 -->
+         <div class="button-container" style="margin-top: 15px;">
+             <button id="aboutUsBtn"><span class="button-text">关于我们 🎥</span></button>
          </div>
      </div>
   
@@ -746,19 +1090,80 @@ transition: all 0.3s ease;
              QQ:3044947120
          </div>
          <div class="announcement-content">
-             微信:TDAQINgNing
+             微信:Qing_manman_0113
          </div>
          <div class="announcement-content">
              邮箱:vonzy57508@126.com
          </div>
-         <!-- 添加作者微信按钮 -->
-         <div class="button-container">
-             <button id="wechatBtn"><span class="button-text">添加我的微信</span></button>
+         <!-- 头牌推荐和更多视频按钮 -->
+         <div class="button-container" style="margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+             <button id="topRecommendBtn"><span class="button-text">头牌推荐 🎬</span></button>
+             <button id="moreVideosBtn"><span class="button-text">更多视频 📹</span></button>
+         </div>
+     </div>
+     
+     <!-- 代码学习进度卡片 -->
+     <div id="codeProgressCard" class="code-progress-card fade-in" style="opacity: 1; transform: translateY(0px);">
+         <div class="progress-header">
+             <div class="progress-icon">📊</div>
+             <div class="progress-title">代码学习进度</div>
+         </div>
+         
+         <!-- C++进度 -->
+         <div class="progress-item">
+             <div class="progress-label">
+                 <span class="language-name">C++语言</span>
+                 <span class="progress-percent">13%</span>
+             </div>
+             <div class="progress-bar-container">
+                 <div id="cppProgress" class="progress-bar cpp-progress">
+                     <span class="progress-value">13%</span>
+                 </div>
+             </div>
+         </div>
+         
+         <!-- Python进度 -->
+         <div class="progress-item">
+             <div class="progress-label">
+                 <span class="language-name">Python语言</span>
+                 <span class="progress-percent">25%</span>
+             </div>
+             <div class="progress-bar-container">
+                 <div id="pythonProgress" class="progress-bar python-progress">
+                     <span class="progress-value">25%</span>
+                 </div>
+             </div>
+         </div>
+         
+         <!-- Java进度 -->
+         <div class="progress-item">
+             <div class="progress-label">
+                 <span class="language-name">Java语言</span>
+                 <span class="progress-percent">18%</span>
+             </div>
+             <div class="progress-bar-container">
+                 <div id="javaProgress" class="progress-bar java-progress">
+                     <span class="progress-value">18%</span>
+                 </div>
+             </div>
+         </div>
+         
+         <!-- Haskell进度 -->
+         <div class="progress-item">
+             <div class="progress-label">
+                 <span class="language-name">Haskell语言</span>
+                 <span class="progress-percent">15%</span>
+             </div>
+             <div class="progress-bar-container">
+                 <div id="haskellProgress" class="progress-bar haskell-progress">
+                     <span class="progress-value">15%</span>
+                 </div>
+             </div>
          </div>
      </div>
      
      <!-- 公告卡片4- 关于我们 -->
-     <div id="announcement3" class="announcement-card fade-in" style="opacity: 1; transform: translateY(0px);">
+         <div id="announcement3" class="announcement-card fade-in" style="opacity: 1; transform: translateY(0px);">
          <div class="announcement-header">
              <div class="announcement-icon">ℹ️</div>
              <div class="announcement-title">我的留言</div>
@@ -780,6 +1185,286 @@ transition: all 0.3s ease;
      </audio>
      
      <script>
+        // ================= 背景图片管理 =================
+        // 背景图片列表 - 现在有八张背景图片
+        const backgrounds = [
+            'image_download_1762167806164.jpg',
+            'IMG_20251107_203025.jpg',
+            'IMG_20251107_202911.jpg',
+            'IMG_20251107_203013.jpg',
+            'IMG_20251107_202921.jpg',
+            'IMG_20251107_202931.jpg',
+            'IMG_20251107_202944.jpg',
+            'IMG_20251107_202956.jpg'
+        ];
+        
+        let currentBgIndex = 0;
+        
+        // 初始化背景 - 随机选择一张背景图片
+        function initBackground() {
+            // 随机选择一个索引
+            currentBgIndex = Math.floor(Math.random() * backgrounds.length);
+            
+            // 设置初始背景
+            document.body.style.backgroundImage = `url('${backgrounds[currentBgIndex]}')`;
+            
+            // 更新按钮文字显示当前背景编号
+            const bgText = ['🌅', '🌄', '🌇', '🌌','🌅', '🌄', '🌇', '🌌'];
+            document.getElementById('bgChangeBtn').querySelector('.button-text').textContent = `切换背景 ${bgText[currentBgIndex]}`;
+        }
+        
+        // ================= 代码学习进度条动画 =================
+        function initProgressBars() {
+            // 设置进度条的最终宽度（百分比）
+            const progressBars = {
+                'cppProgress': 13,
+                'pythonProgress': 25,
+                'javaProgress': 18,
+                'haskellProgress': 15
+            };
+            
+            // 页面加载完成后延迟执行动画
+            setTimeout(() => {
+                let delay = 300; // 初始延迟
+                
+                for (const [id, percent] of Object.entries(progressBars)) {
+                    setTimeout(() => {
+                        const progressBar = document.getElementById(id);
+                        const progressValue = progressBar.querySelector('.progress-value');
+                        
+                        if (progressBar) {
+                            // 设置宽度动画 - 从0增加到目标百分比
+                            progressBar.style.transition = 'width 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
+                            progressBar.style.width = `${percent}%`;
+                            
+                            // 延迟显示进度数值
+                            setTimeout(() => {
+                                if (progressValue) {
+                                    progressValue.style.opacity = '1';
+                                }
+                            }, 1500);
+                            
+                            // 为较高的进度条添加脉冲效果
+                            if (percent >= 5) {
+                                setTimeout(() => {
+                                    progressBar.classList.add('pulse');
+                                }, 2000);
+                            }
+                        }
+                    }, delay);
+                    
+                    delay += 500; // 每个进度条之间增加500ms延迟
+                }
+            }, 1000); // 延迟1秒开始动画，等待页面加载
+        }
+        
+        // ================= 关于我们视频弹窗功能 =================
+        function initAboutVideoPopup() {
+            const aboutUsBtn = document.getElementById('aboutUsBtn');
+            const aboutVideoPopup = document.getElementById('aboutVideoPopup');
+            const aboutVideoElement = document.getElementById('aboutVideo');
+            
+            // 添加按钮点击事件
+            aboutUsBtn.addEventListener('click', function() {
+                // 添加脉冲效果
+                this.classList.add('pulse-active');
+                setTimeout(() => {
+                    this.classList.remove('pulse-active');
+                }, 500);
+                
+                // 显示视频弹窗
+                aboutVideoPopup.style.display = 'flex';
+                
+                // 延迟播放视频
+                setTimeout(() => {
+                    aboutVideoElement.play().catch(err => {
+                        console.error('视频播放失败:', err);
+                        alert('视频加载失败，请检查视频文件路径');
+                    });
+                }, 300);
+            });
+            
+            // 点击弹窗空白处关闭
+            aboutVideoPopup.addEventListener('click', function(e) {
+                if (e.target === aboutVideoPopup) {
+                    // 暂停视频
+                    aboutVideoElement.pause();
+                    // 隐藏弹窗
+                    aboutVideoPopup.style.display = 'none';
+                }
+            });
+            
+            // 监听视频结束事件
+            aboutVideoElement.addEventListener('ended', function() {
+                // 视频播放结束后，3秒后自动关闭弹窗
+                setTimeout(() => {
+                    aboutVideoPopup.style.display = 'none';
+                }, 3000);
+            });
+        }
+        
+        // ================= 头牌推荐视频弹窗功能 =================
+        function initTopRecommendVideoPopup() {
+            const topRecommendBtn = document.getElementById('topRecommendBtn');
+            const topRecommendVideoPopup = document.getElementById('topRecommendVideoPopup');
+            const topRecommendVideoElement = document.getElementById('topRecommendVideo');
+            
+            // 添加按钮点击事件
+            topRecommendBtn.addEventListener('click', function() {
+                // 添加脉冲效果
+                this.classList.add('pulse-active');
+                setTimeout(() => {
+                    this.classList.remove('pulse-active');
+                }, 500);
+                
+                // 显示视频弹窗
+                topRecommendVideoPopup.style.display = 'flex';
+                
+                // 延迟播放视频
+                setTimeout(() => {
+                    topRecommendVideoElement.play().catch(err => {
+                        console.error('视频播放失败:', err);
+                        alert('视频加载失败，请检查视频文件路径');
+                    });
+                }, 300);
+            });
+            
+            // 点击弹窗空白处关闭
+            topRecommendVideoPopup.addEventListener('click', function(e) {
+                if (e.target === topRecommendVideoPopup) {
+                    // 暂停视频
+                    topRecommendVideoElement.pause();
+                    // 隐藏弹窗
+                    topRecommendVideoPopup.style.display = 'none';
+                }
+            });
+            
+            // 监听视频结束事件
+            topRecommendVideoElement.addEventListener('ended', function() {
+                // 视频播放结束后，3秒后自动关闭弹窗
+                setTimeout(() => {
+                    topRecommendVideoPopup.style.display = 'none';
+                }, 3000);
+            });
+        }
+        
+        // ================= 更多视频弹窗功能 =================
+        function initMoreVideosPopup() {
+            const moreVideosBtn = document.getElementById('moreVideosBtn');
+            const moreVideosPopup = document.getElementById('moreVideosPopup');
+            const videoPlayer = document.getElementById('moreVideosPlayer');
+            const prevVideoBtn = document.getElementById('prevVideoBtn');
+            const nextVideoBtn = document.getElementById('nextVideoBtn');
+            const videoTitle = document.getElementById('videoTitle');
+            
+            // 视频列表
+            const videoList = [
+                {
+                    src: '宣传视频1.mp4',
+                    title: '宣传视频 ①'
+                },
+                {
+                    src: '宣传视频2.mp4',
+                    title: '宣传视频 ②'
+                },
+                   {
+                    src: '宣传视频3.mp4',
+                    title: '宣传视频 ③'
+                },
+                   {
+                    src: '宣传视频4.mp4',
+                    title: '宣传视频 ④'
+                }
+            ];
+            
+            let currentVideoIndex = 0;
+            
+            // 加载当前视频
+            function loadCurrentVideo() {
+                const currentVideo = videoList[currentVideoIndex];
+                videoPlayer.src = currentVideo.src;
+                videoTitle.textContent = currentVideo.title;
+                
+                // 更新按钮状态
+                prevVideoBtn.disabled = currentVideoIndex === 0;
+                nextVideoBtn.disabled = currentVideoIndex === videoList.length - 1;
+                
+                // 如果弹窗显示中，播放视频
+                if (moreVideosPopup.style.display === 'flex') {
+                    setTimeout(() => {
+                        videoPlayer.play().catch(err => {
+                            console.error('视频播放失败:', err);
+                            alert('视频加载失败，请检查视频文件路径');
+                        });
+                    }, 300);
+                }
+            }
+            
+            // 上一个视频
+            function prevVideo() {
+                if (currentVideoIndex > 0) {
+                    currentVideoIndex--;
+                    loadCurrentVideo();
+                }
+            }
+            
+            // 下一个视频
+            function nextVideo() {
+                if (currentVideoIndex < videoList.length - 1) {
+                    currentVideoIndex++;
+                    loadCurrentVideo();
+                }
+            }
+            
+            // 添加按钮点击事件
+            moreVideosBtn.addEventListener('click', function() {
+                // 添加脉冲效果
+                this.classList.add('pulse-active');
+                setTimeout(() => {
+                    this.classList.remove('pulse-active');
+                }, 500);
+                
+                // 显示视频弹窗
+                moreVideosPopup.style.display = 'flex';
+                
+                // 加载并播放当前视频
+                loadCurrentVideo();
+            });
+            
+            // 点击弹窗空白处关闭
+           moreVideosPopup.addEventListener('click', function(e) {
+                if (e.target === moreVideosPopup) {
+                    // 暂停视频
+                    videoPlayer.pause();
+                    // 隐藏弹窗
+                    moreVideosPopup.style.display = 'none';
+                }
+            });
+            
+            // 添加上一个视频按钮事件
+            prevVideoBtn.addEventListener('click', prevVideo);
+            
+            // 添加下一个视频按钮事件
+            nextVideoBtn.addEventListener('click', nextVideo);
+            
+            // 监听视频结束事件
+             videoPlayer.addEventListener('ended', function() {
+                // 视频播放结束后，自动播放下一个视频
+                if (currentVideoIndex < videoList.length - 1) {
+                    nextVideo();
+                } else {
+                    // 如果是最后一个视频，3秒后关闭弹窗
+                    setTimeout(() => {
+                        moreVideosPopup.style.display = 'none';
+                    }, 3000);
+                }
+            });
+            
+            // 初始加载第一个视频
+            loadCurrentVideo();
+        }
+        
+        // ================= 代码2的原有功能 =================
         // 页面加载完成后执行
         window.addEventListener('load', function() {
             // 显示加载动画
@@ -820,8 +1505,11 @@ transition: all 0.3s ease;
         
         // 初始化页面内容
         function initPageContent() {
+            // 初始化背景 - 随机选择一张背景图片
+            initBackground();
+            
             // 初始化雪花
-createSnowflakes();
+            createSnowflakes();
             
             // 初始化音乐控制
             initMusicControl();
@@ -846,6 +1534,54 @@ createSnowflakes();
             
             // 初始化微信弹窗功能
             initWechatPopup();
+            
+            // 初始化背景切换功能
+            initBackgroundChange();
+            
+            // 初始化代码学习进度条动画
+            initProgressBars();
+            
+            // 初始化关于我们视频弹窗功能
+            initAboutVideoPopup();
+            
+            // 初始化头牌推荐视频弹窗功能
+            initTopRecommendVideoPopup();
+            
+            // 初始化更多视频弹窗功能
+            initMoreVideosPopup();
+        }
+        
+        // 初始化背景切换功能
+        function initBackgroundChange() {
+            const bgChangeBtn = document.getElementById('bgChangeBtn');
+            const bgTransition = document.getElementById('bgTransition');
+            
+            // 添加按钮点击事件
+            bgChangeBtn.addEventListener('click', function() {
+                // 添加脉冲效果
+                this.classList.add('pulse-active');
+                setTimeout(() => {
+                    this.classList.remove('pulse-active');
+                }, 500);
+                
+                // 显示过渡遮罩
+                bgTransition.classList.add('active');
+                
+                // 延迟切换背景图片
+                setTimeout(() => {
+                    // 切换到下一张背景
+                    currentBgIndex = (currentBgIndex + 1) % backgrounds.length;
+                    document.body.style.backgroundImage = `url('${backgrounds[currentBgIndex]}')`;
+                    
+                    // 更新按钮文字显示当前背景编号
+                    const bgText = ['🌅', '🌄', '🌇', '🌌','🌅', '🌄', '🌇', '🌌'];
+                    bgChangeBtn.querySelector('.button-text').textContent = `切换背景 ${bgText[currentBgIndex]}`;
+                    // 隐藏过渡遮罩
+                    setTimeout(() => {
+                        bgTransition.classList.remove('active');
+                    }, 500);
+                }, 500);
+            });
         }
         
         // 初始化微信弹窗功能
@@ -874,7 +1610,7 @@ createSnowflakes();
         }
         
         // 初始化点击页面生成雪花
-               function initClickSnowflakes() {
+        function initClickSnowflakes() {
             document.body.addEventListener('click', function(e) {
                 // 生成3-6片雪花
                 const snowflakeCount = Math.floor(Math.random() * 4) + 3; // 3-6片
@@ -918,9 +1654,14 @@ createSnowflakes();
         }
         
         // 初始化按钮脉冲效果
-        function initButtonPulse() {
+         function initButtonPulse() {
             const musicBtn = document.getElementById('musicBtn');
             const moodBtn = document.getElementById('moodBtn');
+            const bgChangeBtn = document.getElementById('bgChangeBtn');
+            const wechatBtn = document.getElementById('wechatBtn');
+            const aboutUsBtn = document.getElementById('aboutUsBtn');
+            const topRecommendBtn = document.getElementById('topRecommendBtn');
+            const moreVideosBtn = document.getElementById('moreVideosBtn');
             
             // 为按钮添加脉冲效果
             musicBtn.addEventListener('click', function() {
@@ -936,10 +1677,45 @@ createSnowflakes();
                     this.classList.remove('pulse-active');
                 }, 500);
             });
+            
+            bgChangeBtn.addEventListener('click', function() {
+                this.classList.add('pulse-active');
+                setTimeout(() => {
+                    this.classList.remove('pulse-active');
+                }, 500);
+            });
+            
+            wechatBtn.addEventListener('click', function() {
+                this.classList.add('pulse-active');
+                setTimeout(() => {
+                    this.classList.remove('pulse-active');
+                }, 500);
+            });
+            
+            aboutUsBtn.addEventListener('click', function() {
+                this.classList.add('pulse-active');
+                setTimeout(() => {
+                    this.classList.remove('pulse-active');
+                }, 500);
+            });
+            
+            topRecommendBtn.addEventListener('click', function() {
+                this.classList.add('pulse-active');
+                setTimeout(() => {
+                    this.classList.remove('pulse-active');
+                }, 500);
+            });
+            
+            moreVideosBtn.addEventListener('click', function() {
+                this.classList.add('pulse-active');
+                setTimeout(() => {
+                    this.classList.remove('pulse-active');
+                }, 500);
+            });
         }
         
         // 雪花飘落逻辑 - 保持原有数量
-        function createSnowflakes() {
+         function createSnowflakes() {
             const snowflakesContainer = document.getElementById('snowflakes');
             // 保持原有的35个雪花
             const snowflakeCount = 35;
@@ -986,14 +1762,13 @@ createSnowflakes();
                     this.remove();
                     createSingleSnowflake(this.style.left);
                 }, 500);
-              });
+            });
         }
         
-        // 音乐控制脚本 - 优化加载
-        function initMusicControl() {
+        // 音乐控制脚本 - 已移除歌词
+         function initMusicControl() {
             const audio = document.getElementById('bgMusic');
             const musicBackgroundCard = document.getElementById('musicBackgroundCard');
-            const lyricsContent = document.getElementById('lyricsContent');
             let isPlaying = false;
             const musicBtn = document.getElementById('musicBtn');
             
@@ -1002,20 +1777,6 @@ createSnowflakes();
                 audio.src = "mmexport1762170693500.mp4";
             }, 1000);
             
-            // 汪苏泷《晴》歌词 (2分27秒到3分09秒部分)
-            const lyrics = [
-                { time: 0, text: "爱过了几年 才能停 雨下了几天 才能晴" },
-                { time: 7.5, text: "我没有伤心 眼泪只是刚好而已哦哦" },
-                { time: 13.7, text: "有些歌太触景伤情 却还是舍不得暂停 " },
-                { time: 20.5, text: "窗外已放晴 我的爱怎么停  呜哦" },
-                { time: 28, text: "这首歌的旋律从未忘记 就好像" },
-                { time: 32.8, text: "你的声音和表情" },
-                { time: 37.5, text: "当我闭上眼睛" }
-            ];
-            
-            // 当前歌词索引
-     let currentLyricIndex = 0;
-            
             // 监听音频时间更新
             audio.addEventListener('timeupdate', function() {
                 const currentTime = Math.floor(audio.currentTime);
@@ -1023,23 +1784,7 @@ createSnowflakes();
                 // 检查是否在指定时间范围内 (2分27秒到3分09秒)
                 if (currentTime >= 0 && currentTime <= 42) { // 42秒 = 3:09 - 2:27
                     // 显示音乐背景卡片
-                     musicBackgroundCard.classList.add('show');
-                    
-                    // 更新歌词
-                    if (currentTime >= lyrics[currentLyricIndex].time && 
-                        (currentLyricIndex === lyrics.length - 1 || currentTime < lyrics[currentLyricIndex + 1].time)) {
-                        // 当前歌词不需要更新
-                    } else {
-                        // 找到当前时间对应的歌词
-                        for (let i = 0; i < lyrics.length; i++) {
-                            if (currentTime >= lyrics[i].time && 
-                                (i === lyrics.length - 1 || currentTime < lyrics[i + 1].time)) {
-                                currentLyricIndex = i;
-                                lyricsContent.textContent = lyrics[i].text;
-                                break;
-                            }
-                        }
-                    }
+                    musicBackgroundCard.classList.add('show');
                 } else {
                     // 隐藏音乐背景卡片
                     musicBackgroundCard.classList.remove('show');
@@ -1052,7 +1797,7 @@ createSnowflakes();
                 musicBtn.querySelector('.button-text').textContent = '播放音乐 🎵';
                 musicBackgroundCard.classList.remove('show');
                 // 移除音乐卡片的脉冲效果
-                             musicBackgroundCard.classList.remove('music-pulse');
+                musicBackgroundCard.classList.remove('music-pulse');
             });
             
             // 音频加载失败处理
@@ -1087,7 +1832,6 @@ createSnowflakes();
                         // 如果音频刚开始播放，显示音乐背景卡片
                         if (audio.currentTime < 42) {
                             musicBackgroundCard.classList.add('show');
-                            lyricsContent.textContent = lyrics[0].text;
                         }
                         
                         // 添加音乐卡片的脉冲效果
@@ -1127,7 +1871,7 @@ createSnowflakes();
                 
                 const textItem = document.createElement('div');
                 textItem.className = 'text-item';
-                             const color = colors[Math.floor(Math.random() * colors.length)];
+                const color = colors[Math.floor(Math.random() * colors.length)];
                 textItem.style.backgroundColor = color;
                 const text = texts[Math.floor(Math.random() * texts.length)];
                 textItem.innerText = text;
@@ -1252,7 +1996,7 @@ createSnowflakes();
             if (!ticking) {
                 requestAnimationFrame(function() {
                     // 这里可以添加滚动相关的逻辑
-                     ticking = false;
+                    ticking = false;
                 });
                 ticking = true;
             }
